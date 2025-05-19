@@ -5,7 +5,7 @@
 [![Neo4j](https://img.shields.io/badge/Neo4j-5.0+-green.svg)](https://neo4j.com/)
 [![Firebase](https://img.shields.io/badge/Firebase-Auth-orange.svg)](https://firebase.google.com/)
 
-A personalized grocery recommendation system powered by graph database technology, built as a university project at **UET Lahore (Faisalabad Campus)**.
+
 
 ---
 
