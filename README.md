@@ -57,25 +57,30 @@ Developed as a final year project at **University of Engineering and Technology,
 
 ---
 
-## 🏗 System Architecture
+🏗 System Architecture
 
 +---------------------+
-| Flutter App |
+|     Flutter App     |
 +---------------------+
-|
-v
+           |
+           v
 +---------------------+
-| Flask API |
+|      Flask API      |
 +---------------------+
-| |
-v v
-+--------+ +------------+
-| Firebase| | Neo4j |
-+--------+ +------------+
+     |         |
+     v         v
++---------+  +------------+
+| Firebase |  |   Neo4j   |
++---------+  +------------+
 
-markdown
-Copy
-Edit
+
+- **Frontend**: Built with Flutter for both Android and iOS.
+- **Backend**: Flask-based REST API communicates with Firebase and Neo4j.
+- **Database**: Neo4j stores user-product interactions and relationships.
+- **Authentication**: Firebase handles sign-in, sign-up, and session tokens.
+
+---
+
 
 - **Frontend**: Built with Flutter for both Android and iOS.
 - **Backend**: Flask-based REST API communicates with Firebase and Neo4j.
@@ -115,7 +120,7 @@ source venv/bin/activate
 venv\Scripts\activate
 
 pip install -r requirements.txt
-Update your Neo4j config in backend/config.py:
+Update Neo4j config in backend/config.py:
 
 python
 Copy
@@ -139,7 +144,7 @@ Set up Firebase:
 
 Download google-services.json (Android) and GoogleService-Info.plist (iOS) from Firebase Console
 
-Place in:
+Place them in:
 
 android/app/google-services.json
 
@@ -160,11 +165,9 @@ flutter run
 4. Neo4j Setup
 Install Neo4j Desktop or use a Neo4j server
 
-Create a database
+Create a database and note Bolt URI, username, and password
 
-Note the Bolt URI, username, and password
-
-Import sample data (optional):
+(Optional) Import sample data:
 
 cypher
 Copy
@@ -179,7 +182,7 @@ Enable Authentication (Email/Password)
 
 Register your Android/iOS app
 
-Download and place config files into respective frontend folders
+Download and place config files in respective folders
 
 📲 Usage
 Launch the Flutter app
@@ -194,6 +197,26 @@ Track your interaction history (viewed/purchased)
 
 (Optional) Admin panel for managing product categories
 
+📂 Project Structure
+arduino
+Copy
+Edit
+firegraph-smart-grocery-recommender/
+├── backend/
+│   ├── app.py
+│   ├── config.py
+│   ├── requirements.txt
+│   └── routes/
+├── frontend/
+│   ├── lib/
+│   ├── pubspec.yaml
+│   └── assets/
+├── data/
+│   ├── import.cypher
+├── docs/
+│   ├── Project_Report.pdf
+│   └── architecture_diagram.png
+└── README.md
 🌐 Graph Model
 🧩 Nodes
 User: { userID, name, email }
@@ -230,26 +253,6 @@ MATCH (u:User)-[:VIEWED]->(p1:Product)-[:SIMILAR_TO]->(p2:Product)
 WHERE u.userID = 'user123'
 RETURN DISTINCT p2
 LIMIT 10
-📂 Project Structure
-arduino
-Copy
-Edit
-firegraph-smart-grocery-recommender/
-├── backend/
-│   ├── app.py
-│   ├── config.py
-│   ├── requirements.txt
-│   └── routes/
-├── frontend/
-│   ├── lib/
-│   ├── pubspec.yaml
-│   └── assets/
-├── data/
-│   ├── import.cypher
-├── docs/
-│   ├── Project_Report.pdf
-│   └── architecture_diagram.png
-└── README.md
 🤝 Contributing
 We welcome contributions from the community!
 
@@ -288,11 +291,17 @@ Muhammad Arslan Jameel (2022-CS-816)
 
 Raheel Anjum (2022-CS-810)
 
-👨‍🏫 Supervisor: Sir Talha
+👨‍🏫 Supervisor:
 
-🏛️ Institution: University of Engineering and Technology, Lahore (Faisalabad Campus)
+Sir Talha
 
-🕓 Session: 2022–2026
+🏛️ Institution:
+
+University of Engineering and Technology, Lahore (Faisalabad Campus)
+
+🕓 Session:
+
+2022–2026
 
 📚 References
 Neo4j Documentation
@@ -315,10 +324,4 @@ Edit
 
 ---
 
-Let me know if you want me to:
-
-- Add screenshots or GIFs to the README  
-- Generate the `firebase_options.dart` file for you  
-- Set up a GitHub Actions CI/CD badge or deployment workflow  
-
-Just copy and paste this file as `README.md` in your GitHub repo root.
+✅ You can now copy and paste this into a single `README.md` file directly in your GitHub repository. Let me
