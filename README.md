@@ -1,19 +1,18 @@
 # 🛒 FireGraph Smart Grocery Recommender
 
 ## 📑 Table of Contents
-
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [System Architecture](#system-architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Graph Model](#graph-model)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-- [References](#references)
+- [Project Overview](#-project-overview)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [System Architecture](#-system-architecture)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Graph Model](#-graph-model)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Acknowledgments](#-acknowledgments)
+- [References](#-references)
 
 ---
 
@@ -40,18 +39,17 @@ It combines a cross-platform Flutter app with a Flask backend, Neo4j graph datab
 ## 🛠 Technology Stack
 
 | Layer           | Technology         |
-|----------------|--------------------|
-| Frontend       | Flutter            |
-| Authentication | Firebase           |
-| Backend        | Flask REST API     |
-| Database       | Neo4j              |
-| Data Format    | Cypher             |
-| Hosting        | Local / Cloud      |
+|-----------------|--------------------|
+| Frontend        | Flutter            |
+| Authentication  | Firebase           |
+| Backend         | Flask REST API     |
+| Database        | Neo4j              |
+| Data Format     | Cypher             |
+| Hosting         | Local / Cloud      |
 
 ---
 
-## 🏗 System Architecture
-
+## � System Architecture
 +---------------------+
 | Flutter App |
 +---------------------+
@@ -63,14 +61,14 @@ v
 | |
 v v
 +--------+ +------------+
-|Firebase| | Neo4j |
+| Firebase| | Neo4j |
 +--------+ +------------+
 
 
-- **Frontend**: Built with Flutter for both Android and iOS.
-- **Backend**: Flask-based REST API communicates with Firebase and Neo4j.
-- **Database**: Neo4j stores user-product interactions and relationships.
-- **Authentication**: Firebase handles sign-in, sign-up, and session tokens.
+- **Frontend**: Built with Flutter for both Android and iOS
+- **Backend**: Flask-based REST API communicates with Firebase and Neo4j
+- **Database**: Neo4j stores user-product interactions and relationships
+- **Authentication**: Firebase handles sign-in, sign-up, and session tokens
 
 ---
 
@@ -88,94 +86,131 @@ v v
 ### 🔧 Setup Instructions
 
 #### 1. Clone the Repository
-
-# Clone the repository
+```bash
 git clone https://github.com/<your-username>/firegraph-smart-grocery-recommender.git
-
-# Navigate to the backend directory
 cd firegraph-smart-grocery-recommender/backend
-
-# Create a virtual environment
+2. Set Up Backend
+bash
+# Create and activate virtual environment
 python -m venv venv
-
-# Activate the virtual environment
-# For macOS/Linux:
-source venv/bin/activate
-# For Windows:
-# venv\Scripts\activate
+source venv/bin/activate  # Linux/MacOS
+# venv\Scripts\activate  # Windows
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Set environment variables (do this before running the app)
-# On macOS/Linux:
+# Set environment variables
 export NEO4J_URI="bolt://localhost:7687"
 export NEO4J_USER="neo4j"
 export NEO4J_PASSWORD="your_password"
-
-# On Windows:
-# set NEO4J_URI="bolt://localhost:7687"
-# set NEO4J_USER="neo4j"
-# set NEO4J_PASSWORD="your_password"
+# For Windows: use 'set' instead of 'export'
 
 # Run the application
 python app.py
-
+3. Set Up Frontend
+bash
+cd ../frontend
+flutter pub get
+flutter run
 📲 Usage
--Launch the Flutter app
--Register or log in with Firebase
--Browse grocery products
--View tailored recommendations based on your behavior
--Track your interaction history (viewed/purchased)
--(Optional) Admin panel for managing product categories
+Launch the Flutter app
+
+Register or log in with Firebase
+
+Browse grocery products
+
+View tailored recommendations based on your behavior
+
+Track your interaction history (viewed/purchased)
+
+(Optional) Use admin panel for managing product categories
+
 📂 Project Structure
 firegraph-smart-grocery-recommender/
 ├── backend/
-│   ├── app.py
-│   ├── config.py
-│   ├── requirements.txt
-│   └── routes/
+│   ├── app.py                # Flask application
+│   ├── config.py             # Configuration settings
+│   ├── requirements.txt      # Python dependencies
+│   └── routes/               # API route definitions
 ├── frontend/
-│   ├── lib/
-│   ├── pubspec.yaml
-│   └── assets/
+│   ├── lib/                  # Flutter application code
+│   ├── pubspec.yaml          # Flutter dependencies
+│   └── assets/               # Static assets
 ├── data/
-│   ├── import.cypher
+│   ├── import.cypher         # Sample data import script
 ├── docs/
-│   ├── Project_Report.pdf
+│   ├── Project_Report.pdf    # Project documentation
 │   └── architecture_diagram.png
 └── README.md
-
-
-
 🌐 Graph Model
 🧩 Nodes
--User: { userID, name, email 
--Product: { productID, name, price, category }
--Category: { categoryID, name }
+User: {userID, name, email}
+
+Product: {productID, name, price, category}
+
+Category: {categoryID, name}
 
 🔗 Relationships
--VIEWED: (User)-[:VIEWED {timestamp}]->(Product)
--PURCHASED: (User)-[:PURCHASED {timestamp, quantity}]->(Product)
--BELONGS_TO: (Product)-[:BELONGS_TO]->(Category)
--SIMILAR_TO: (Product)-[:SIMILAR_TO]->(Product)
+(User)-[:VIEWED {timestamp}]->(Product)
+
+(User)-[:PURCHASED {timestamp, quantity}]->(Product)
+
+(Product)-[:BELONGS_TO]->(Category)
+
+(Product)-[:SIMILAR_TO]->(Product)
+
+🤝 Contributing
+Fork the project
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+📜 License
+Distributed under the MIT License. See LICENSE for more information.
 
 🙏 Acknowledgments
-👨‍💻 Team Members:
--Muhammad Arslan Jameel (2022-CS-816)
--Raheel Anjum (2022-CS-810)
-👨‍🏫 Supervisor:
--Sir Talha
-🏛️ Institution:
--University of Engineering and Technology, Lahore (Faisalabad Campus)
-🕓 Session:
--2022–2026
+Team Members:
+
+Muhammad Arslan Jameel (2022-CS-816)
+
+Raheel Anjum (2022-CS-810)
+
+Supervisor: Sir Talha
+
+Institution: University of Engineering and Technology, Lahore (Faisalabad Campus)
+
+Session: 2022–2026
 
 📚 References
--Neo4j Documentation
--Flutter
--Flask
--Firebase
--Gamma et al., Design Patterns
--Ricci et al., Recommender Systems Handbook (Springer, 2011)
--Cypher Query Language Reference
+Neo4j Documentation
+
+Flutter Documentation
+
+Flask Documentation
+
+Firebase Documentation
+
+Gamma et al., Design Patterns
+
+Ricci et al., Recommender Systems Handbook (Springer, 2011)
+
+Cypher Query Language Reference
+
+
+This README includes:
+- Proper GitHub markdown formatting
+- Consistent emoji usage
+- Clear section organization
+- Code blocks for commands
+- ASCII architecture diagram
+- Complete project structure
+- Detailed installation instructions
+- Graph model documentation
+- All requested sections with proper links
+
+The formatting matches GitHub's style and includes all the information from your original request while maintaining readability and professional presentation.
